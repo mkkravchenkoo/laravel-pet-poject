@@ -39,6 +39,57 @@
 
 ])
     <x-home-slider :slides="$slides"/>
-    <x-services :services="$services"/>
+    <x-services-mini :services="$services"/>
+    <x-about-us
+        title="CarServ Is The Best Place For Your Auto Care"
+        text="<p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos.</p><p>Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>"
+        link="/abc"
+        :benefits="[
+            ['num' => '01', 'title' => 'Professional & Expert', 'text' => 'Diam dolor diam ipsum sit amet diam et eos'],
+            ['num' => '02', 'title' => 'Quality Servicing Center', 'text' => 'Diam dolor diam ipsum sit amet diam et eos'],
+            ['num' => '03', 'title' => 'Awards Winning Workers', 'text' => 'Diam dolor diam ipsum sit amet diam et eos'],
+    ]"/>
+    <x-fact
+        :facts="[
+            ['faClass' => 'fa-tools', 'count' => '1234', 'text' => 'Years Experience'],
+            ['faClass' => 'fa-users-cog', 'count' => '4321', 'text' => 'Expert Technicians'],
+            ['faClass' => 'fa-users', 'count' => '4433', 'text' => 'Satisfied Clients'],
+            ['faClass' => 'fa-car', 'count' => '1122', 'text' => 'Compleate Projects'],
+        ]"/>
+    <x-services
+        :services="[
+        [
+            'title' => 'Diagnostic Test',
+            'faClass' => 'fa-car-side',
+            'subTitle' => '15 Years Of Experience In Auto Servicing',
+            'text' => '<p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet<ul><li>Quality Servicing</li><li>Expert Workers</li><li>Modern Equipment</li></ul></p>',
+            'img'  => 'img/service-1.jpg',
+            'link' => '/aaa'
+        ],
+        [
+            'title' => 'Engine Servicing',
+            'faClass' => 'fa-car',
+            'subTitle' => 'In Auto Servicing',
+            'text' => '<p>. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet<ul><li>Quality Servicing</li><li>Expert Workers</li></ul></p>',
+            'img'  => 'img/service-2.jpg',
+            'link' => '/aaa'
+        ],
+        [
+            'title' => 'Tires Replacement',
+            'faClass' => 'fa-cog',
+            'subTitle' => '15 Years Of Experience',
+            'text' => '<p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet<ul><li>Quality Servicing</li><li>Expert Workers</li></ul></p>',
+            'img'  => 'img/service-3.jpg',
+            'link' => '/aaa'
+        ],
+        [
+            'title' => 'Oil Changing',
+            'faClass' => 'fa-oil-can',
+            'subTitle' => '15 Years Of Experience In Auto Servicing',
+            'text' => '<p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet<ul><li>Quality Servicing</li><li>Expert Workers</li></ul></p>',
+            'img'  => 'img/service-4.jpg',
+            'link' => '/aaa'
+        ],
+    ]"/>
 @endsection
 
