@@ -91,5 +91,17 @@
             'link' => '/aaa'
         ],
     ]"/>
+    <x-booking
+        title="Certified and Award Winning Car Repair Service Provider"
+        text="Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed."
+    />
+    <x-team
+        :employees="[
+    ['name' => 'Lorem Ipsum', 'position' => 'Designer', 'avatar' => 'img/team-1.jpg', 'social_fb' => 'https://www.facebook.com/', 'social_inst' => 'https://www.instagram.com/', 'social_tw' => 'https://twitter.com/'],
+    ['name' => 'Aliquyam Ipsum', 'position' => 'Developer', 'avatar' => 'img/team-2.jpg'],
+    ['name' => 'Ipsum Aliquyam', 'position' => 'Manager', 'avatar' => 'img/team-3.jpg'],
+    ['name' => 'Ipsum Ipsum', 'position' => 'Copywriter', 'avatar' => 'img/team-4.jpg'],
+]"
+    />
 @endsection
 
