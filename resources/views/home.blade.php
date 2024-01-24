@@ -103,5 +103,15 @@
     ['name' => 'Ipsum Ipsum', 'position' => 'Copywriter', 'avatar' => 'img/team-4.jpg'],
 ]"
     />
+
+    <x-reviews
+        :reviews="[
+    ['name' => 'James Cameron', 'position' => 'Producer', 'avatar' => 'img/testimonial-1.jpg', 'text' => 'Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.'],
+    ['name' => 'Brad Pit', 'position' => 'Actor', 'avatar' => 'img/testimonial-2.jpg', 'text' => 'Tiam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.'],
+    ['name' => 'Angelina Jolie', 'position' => 'Actor', 'avatar' => 'img/testimonial-3.jpg', 'text' => 'Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.'],
+    ['name' => 'Lara Croft', 'position' => 'Raider', 'avatar' => 'img/testimonial-4.jpg', 'text' => 'Diam dolor diam ipsum sit diam amet diam et eos. Tempor erat elitr rebum at clita. Clita erat ipsum et lorem et sit.'],
+
+]"/>
+
 @endsection
 
