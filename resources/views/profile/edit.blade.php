@@ -1,10 +1,6 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
-    <x-admin-content>
+@extends('layouts.admin')
+@section('content')
+    <x-admin-content :title="__('Profile')">
         <div class="max-w-7xl mx-auto">
             <div class="p-4 pb-8 pt-0">
                 <div class="max-w-xl">
@@ -25,5 +21,4 @@
             </div>
         </div>
     </x-admin-content>
-
-</x-app-layout>
+@endsection

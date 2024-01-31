@@ -1,6 +1,13 @@
+@props(['title' => ''])
+<header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{$title}}
+        </h2>
+    </div>
+</header>
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-
         <div class="w-full flex flex-col sm:flex-row flex-grow overflow-hidden">
             <div class="sm:w-1/3 md:1/4 w-full flex-shrink flex-grow-0 p-4">
 
@@ -8,14 +15,8 @@
                     <a href="{{route('profile.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Profile
                     </a>
-                    <a href="#" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
-                        Settings
-                    </a>
-                    <a href="#" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
-                        Messages
-                    </a>
-                    <a href="#" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
-                        Download
+                    <a href="{{route('menu.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                        Main menu
                     </a>
                 </div>
 
@@ -29,6 +30,5 @@
                 </div>
             </main>
         </div>
-
     </div>
 </div>
