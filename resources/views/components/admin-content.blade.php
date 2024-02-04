@@ -12,13 +12,13 @@
             <div class="sm:w-1/3 md:1/4 w-full flex-shrink flex-grow-0 p-4">
 
                 <div class="w-full bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <a href="{{route('profile.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                    <a href="{{route('admin.profile.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Profile
                     </a>
-                    <a href="{{route('menu.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                    <a href="{{route('admin.menu.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Main menu
                     </a>
-                    <a href="{{route('team.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                    <a href="{{route('admin.team.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Team
                     </a>
                 </div>
