@@ -31,7 +31,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
         return view('admin.menu.edit');
     })->name('admin.menu.edit');
 
-    Route::get('/team', [AdminTeamController::class, 'index'])->name('admin.team.index');
+    Route::get('/teams', [AdminTeamController::class, 'index'])->name('admin.team.index');
+    Route::get('/teams/{team}/edit', [AdminTeamController::class, 'edit'])->name('admin.team.edit');
 
 });
 

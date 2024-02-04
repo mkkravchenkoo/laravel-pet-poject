@@ -12,4 +12,10 @@ class AdminTeamController extends Controller
             'teams' => Team::paginate(10)
         ]);
     }
+
+    public function edit(Team $team){
+        return view('admin.team.edit',[
+            'team' => $team
+        ]);
+    }
 }
