@@ -18,6 +18,9 @@
                     <a href="{{route('menu.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Main menu
                     </a>
+                    <a href="{{route('team.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                        Team
+                    </a>
                 </div>
 
             </div>

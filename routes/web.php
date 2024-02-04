@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminTeamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,17 +19,19 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/admin', function () {
-    return view('admin-home');
-})->middleware(['auth', 'verified'])->name('admin');
+Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', function () {
+        return view('admin-home');
+    })->name('admin');
 
-Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/menu', function (){
         return view('menu.edit');
     })->name('menu.edit');
+
+    Route::resource('team', AdminTeamController::class)->except('show');
 
 });
 
