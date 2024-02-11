@@ -29,6 +29,7 @@
 
     <!-- Page Content -->
     <main>
+        <x-flash/>
         @yield('content')
     </main>
 </div>

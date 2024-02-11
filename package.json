@@ -16,6 +16,6 @@
         "vite": "^5.0.0"
     },
     "dependencies": {
-        "sortablejs": "^1.15.2"
+        "nested-sort": "^5.2.0"
     }
 }
