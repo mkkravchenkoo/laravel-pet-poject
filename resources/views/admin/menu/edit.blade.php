@@ -16,8 +16,17 @@
             </div>
             <x-primary-button>{{ __('add new item') }}</x-primary-button>
         </form>
+        <div id="nested-sort-wrap"></div>
 
-        <div id="nested-sort-wrap" data-menu="{{json_encode($mainMenuItems)}}"></div>
+        <form action="{{ route('admin.menu.update') }}" method="POST">
+            @csrf
+            @method('PATCH')
+            <textarea hidden name="main_menu" id="main-menu-field">{{json_encode($mainMenuItems)}}</textarea>
+            <x-primary-button>{{ __('Update') }}</x-primary-button>
+        </form>
+
+
+
     </x-admin-content>
 
     <style>
@@ -35,6 +44,9 @@
             padding: 10px;
             background: #fff;
             border: 1px solid #ddd;
+        }
+        .nested-sort li li{
+            padding-left: 20px;
         }
 
         .nested-sort li ol {

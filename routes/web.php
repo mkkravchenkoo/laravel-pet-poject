@@ -31,6 +31,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/menu', [MainMenuController::class, 'edit'])->name('admin.menu.edit');
     Route::post('/menu', [MainMenuController::class, 'store'])->name('admin.menu.store');
+    Route::patch('/menu', [MainMenuController::class, 'update'])->name('admin.menu.update');
+    Route::delete('/menu/{id}', [MainMenuController::class, 'destroy'])->name('admin.menu.destroy');
 
     Route::get('/teams', [AdminTeamController::class, 'index'])->name('admin.team.index');
     Route::get('/teams/{team}/edit', [AdminTeamController::class, 'edit'])->name('admin.team.edit');

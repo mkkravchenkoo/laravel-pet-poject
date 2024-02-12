@@ -8,23 +8,37 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-function renderForm(){
-    return "+ <input type='text' placeholder='text'/><input type='text' placeholder='link'/>"
+var menuInput = document.getElementById('main-menu-field');
+var csrf = document.querySelector('meta[name="csrf-token"]').content
+
+window.onMenuItemChange = function (){
+    var allItems = JSON.parse(menuInput.value)
+
+    var optionId = this.getAttribute('data-menu-option-id');
+    var newValues = allItems.map((item) => {
+        const {text, link, id} = item;
+        if(id === optionId){
+            const newItem = {...item}
+            if(this.name === 'link'){
+                newItem.link = this.value;
+                newItem.text = text;
+            }else if(this.name === 'text'){
+                newItem.text = this.value;
+                newItem.link = link;
+            }
+            return newItem
+        }else {
+            return item
+        }
+    })
+
+    menuInput.value = JSON.stringify(newValues)
+
 }
 
-var menuEl = document.getElementById('nested-sort-wrap')
-
-
-var onDeleteItem = function (deleteId){
-    console.log('onDeleteItem', deleteId)
-    // menuItems = nestedSort.data.filter(({id}) => {
-    //     return id !== deleteId
-    // });
-}
-
-var nestedSort = new NestedSort({
+new NestedSort({
     nestingLevels:1,
-    data: JSON.parse(menuEl.getAttribute('data-menu')),
+    data: JSON.parse(menuInput.value),
     actions: {
         onDrop(data, e) {
             const mappedItems = data.map(function (item){
@@ -34,41 +48,50 @@ var nestedSort = new NestedSort({
                 return {
                     ...item,
                     link: link.value,
-                    value: text.value
+                    text: text.value
                 }
             })
-            menuEl.setAttribute('data-menu', JSON.stringify(mappedItems));
-            // console.log('menuEl', (menuEl.getAttribute('data-menu')))
+            menuInput.value = JSON.stringify(mappedItems)
         }
     },
     el: '#nested-sort-wrap',
     listClassNames: ['nested-sort'],
-    renderListItem: (el, { id, link, text }) => {
-
+    renderListItem: (el, item) => {
+        const { id, link, text } = item
         el.textContent = '';
-
-        var inputLink = document.createElement("input");
-        inputLink.type = "text";
-        inputLink.placeholder = "link";
-        inputLink.name = "link";
-        inputLink.setAttribute('data-name', 'link');
-        inputLink.value = link;
-        el.appendChild(inputLink);
-
-        var inputText = document.createElement("input");
-        inputText.type = "text";
-        inputText.placeholder = "text";
-        inputText.setAttribute('data-name', 'text');
-        inputText.value = text;
-        el.appendChild(inputText);
-
-        const newButton = document.createElement('button');
-        newButton.textContent = '- X -';
-        newButton.onclick = function (){
-            onDeleteItem(id)
-        };
-        el.appendChild(newButton);
-
+        el.innerHTML=`<div class="flex">
+                        <div class="mr-1">
+                            <input
+                                type="text"
+                                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full"
+                                name="link"
+                                onchange="onMenuItemChange.call(this)"
+                                placeholder="link"
+                                data-name="link"
+                                value="${link}"
+                                data-menu-option-id="${id}"
+                            >
+                        </div>
+                        <div class="mr-1">
+                            <input
+                                type="text"
+                                name="text"
+                                class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm mt-1 block w-full"
+                                onchange="onMenuItemChange.call(this)"
+                                placeholder="text"
+                                data-name="text"
+                                value="${text}"
+                                data-menu-option-id="${id}"
+                            >
+                        </div>
+                        <div class="mr-1">
+                            <form method="post" action="${window.location.origin}/admin/menu/${id}">
+                                <input type="hidden" name="_token" value="${csrf}" autocomplete="off">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit">X</button>
+                            </form>
+                        </div>
+                    </div>`;
         return el
     }
 })
