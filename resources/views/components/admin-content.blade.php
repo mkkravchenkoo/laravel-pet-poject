@@ -21,6 +21,9 @@
                     <a href="{{route('admin.team.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Team
                     </a>
+                    <a href="{{route('slider.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                        Slider
+                    </a>
                 </div>
 
             </div>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminTeamController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/teams/{team}/edit', [AdminTeamController::class, 'edit'])->name('admin.team.edit');
     Route::patch('/teams/{team}/edit', [AdminTeamController::class, 'update'])->name('admin.team.update');
     Route::delete('/teams/{team}', [AdminTeamController::class, 'destroy'])->name('admin.team.destroy');
+
+    Route::resource('/slider', SlideController::class)->except('show');
 
 });
 
