@@ -24,6 +24,9 @@
                     <a href="{{route('slider.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Slider
                     </a>
+                    <a href="{{route('admin.config.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                        Config
+                    </a>
                 </div>
 
             </div>
