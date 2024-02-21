@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Config;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $configFields = ['address', 'working-time', 'phone', 'fb-link'];
+        $config = Config::whereIn('name', $configFields)->get()->getAssoc();
+
+        $menu = Config::menu()->convertToArray();
+        View::share('config', $config);
+        View::share('mainMenu', $menu);
     }
 }

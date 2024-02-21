@@ -12,18 +12,13 @@ class ConfigController extends Controller
         'phone',
         'address',
         'email',
+        'working-time',
+        'fb-link'
     ];
 
     public function index()
     {
-        $configRaw = Config::whereIn('name', $this->keys)->get();
-        $config = array_reduce($this->keys, function ($result, $key) use ($configRaw) {
-            $found = $configRaw->first(function($item) use ($key) {
-                return $item->name == $key;
-            });
-            $result[$key] = $found?->value;
-            return $result;
-        }, []);
+        $config = Config::whereIn('name', $this->keys)->get()->getAssoc();
 
         return view('admin.config.index', ['config' => $config, 'configFields' => $this->keys]);
     }

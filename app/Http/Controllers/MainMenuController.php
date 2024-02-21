@@ -8,11 +8,9 @@ use Illuminate\Support\Str;
 
 class MainMenuController extends Controller
 {
-    public const MAIN_MENU_KEY = 'main-menu';
-
     private function getMenu()
     {
-        return Config::query()->where('name', self::MAIN_MENU_KEY)->first();
+        return Config::menu();
     }
 
     public function store(Request $request)
@@ -35,7 +33,7 @@ class MainMenuController extends Controller
             $menuConfig->value = json_encode($data);
         } else {
             $menuConfig = new Config([
-                'name' => self::MAIN_MENU_KEY,
+                'name' => Config::MAIN_MENU_KEY,
                 'value' => json_encode([$validated])
             ]);
         }
@@ -48,7 +46,7 @@ class MainMenuController extends Controller
     {
         $menu = $request->post('main_menu');
         $menuConfig = $this->getMenu();
-        $menuConfig->value = $menu ? json_encode(json_decode($menu)) : json_encode([]) ;
+        $menuConfig->value = $menu ? json_encode(json_decode($menu)) : json_encode([]);
         $menuConfig->save();
         return back()->with('success', 'Menu updated');
     }
@@ -63,14 +61,14 @@ class MainMenuController extends Controller
     public function destroy($id)
     {
         $menuConfig = $this->getMenu();
-        if($menuConfig){
+        if ($menuConfig) {
             $data = json_decode($menuConfig->value, true);
             $filteredArr = array_filter($data, function ($item) use ($id) {
                 return $item['id'] !== $id;
             });
 
             $filteredArr = array_map(function ($item) use ($id) {
-                if(!empty($item['parent']) && $item['parent'] === $id){
+                if (!empty($item['parent']) && $item['parent'] === $id) {
                     unset($item['parent']);
                 }
                 return $item;
