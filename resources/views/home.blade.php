@@ -1,22 +1,5 @@
 @extends('layouts.base')
 @section('content')
-    @php($slides = [
-        [
-        'imgBg' => 'img/carousel-bg-1.jpg',
-        'imgSrc' => 'img/carousel-1.png',
-        'text1' => '// Car Servicing //',
-        'text2' => 'Qualified Car Repair Service Center',
-        'link' => 'abc'
-        ],
-        [
-        'imgBg' => 'img/carousel-bg-2.jpg',
-        'imgSrc' => 'img/carousel-2.png',
-        'text1' => '// Car Servicing 2 //',
-        'text2' => 'Qualified Car Repair Service Center 2',
-        'link' => 'abc2'
-        ],
-])
-
     @php($services = [
         [
         'faClass' => 'fa-certificate',
@@ -38,7 +21,7 @@
         ]
 
 ])
-    <x-home-slider :slides="$slides"/>
+    <x-main-slider/>
     <x-services-mini :services="$services"/>
     <x-about-us
         title="CarServ Is The Best Place For Your Auto Care"
