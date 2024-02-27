@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
         $config = Config::whereIn('name', $configFields)->get()->getAssoc();
 
         $menu = Config::menu()->convertToArray();
-        View::share('config', $config);
+        View::share('globalConfig', $config);
         View::share('mainMenu', $menu);
     }
 }

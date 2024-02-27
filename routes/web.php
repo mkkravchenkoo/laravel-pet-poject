@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminTeamController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
@@ -19,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', function () {

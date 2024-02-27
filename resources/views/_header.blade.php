@@ -4,20 +4,20 @@
         <div class="col-lg-7 px-5 text-start">
             <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                 <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                <small>{{$config['address'] ?? ''}}</small>
+                <small>{{$globalConfig['address'] ?? ''}}</small>
             </div>
             <div class="h-100 d-inline-flex align-items-center py-3">
                 <small class="far fa-clock text-primary me-2"></small>
-                <small>{{$config['working-time'] ?? ''}}</small>
+                <small>{{$globalConfig['working-time'] ?? ''}}</small>
             </div>
         </div>
         <div class="col-lg-5 px-5 text-end">
             <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                 <small class="fa fa-phone-alt text-primary me-2"></small>
-                <small>{{$config['phone'] ?? ''}}</small>
+                <small>{{$globalConfig['phone'] ?? ''}}</small>
             </div>
             <div class="h-100 d-inline-flex align-items-center">
-                <a class="btn btn-sm-square bg-white text-primary me-1" href="{{$config['fb-link'] ?? ''}}"
+                <a class="btn btn-sm-square bg-white text-primary me-1" href="{{$globalConfig['fb-link'] ?? ''}}"
                    target="_blank"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
