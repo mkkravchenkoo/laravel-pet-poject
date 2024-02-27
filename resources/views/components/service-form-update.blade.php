@@ -13,9 +13,9 @@
         <x-input-error class="mt-2" :messages="$errors->get('sub_title')" />
     </div>
     <div>
-        <x-input-label for="image" :value="__('image')" />
-        <x-text-input id="image" name="image" type="file" class="mt-1 block w-full" :value="old('image', $service->image)" />
-        <x-input-error class="mt-2" :messages="$errors->get('image')" />
+        <x-input-label for="thumbnail" :value="__('thumbnail')" />
+        <x-text-input id="thumbnail" name="thumbnail" type="file" class="mt-1 block w-full" :value="old('thumbnail', $service->thumbnail)" />
+        <x-input-error class="mt-2" :messages="$errors->get('thumbnail')" />
         <img src="{{ asset('storage/' . $service?->thumbnail) }}" alt="" class="rounded-xl ml-6" width="100">
     </div>
     <div>

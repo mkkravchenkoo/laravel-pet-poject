@@ -13,7 +13,9 @@ class ConfigController extends Controller
         'address',
         'email',
         'working-time',
-        'fb-link'
+        'fb-link',
+        'booking-text',
+        'pre-booking-text'
     ];
 
     public function index()

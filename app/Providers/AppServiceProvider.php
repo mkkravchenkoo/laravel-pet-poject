@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Config;
+use App\Models\Service;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,7 +26,11 @@ class AppServiceProvider extends ServiceProvider
         $config = Config::whereIn('name', $configFields)->get()->getAssoc();
 
         $menu = Config::menu()->convertToArray();
+
+        $servicesMenu = Service::select('slug','title')->limit(4)->get();
+
         View::share('globalConfig', $config);
         View::share('mainMenu', $menu);
+        View::share('servicesMenu', $servicesMenu);
     }
 }

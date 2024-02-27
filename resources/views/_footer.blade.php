@@ -22,11 +22,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Services</h4>
-                <a class="btn btn-link" href="">Diagnostic Test</a>
-                <a class="btn btn-link" href="">Engine Servicing</a>
-                <a class="btn btn-link" href="">Tires Replacement</a>
-                <a class="btn btn-link" href="">Oil Changing</a>
-                <a class="btn btn-link" href="">Vacuam Cleaning</a>
+                @foreach($servicesMenu as $service)
+                    <a class="btn btn-link" href="{{$service->slug}}">{{$service->title}}</a>
+                @endforeach
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-@props(['title' => '', 'text' => ''])
+@props(['title' => '', 'text' => '', 'options' => []])
 <div class="container-fluid bg-secondary booking my-5 wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row gx-5">
@@ -22,9 +22,9 @@
                             <div class="col-12 col-sm-6">
                                 <select class="form-select border-0" name="service"  style="height: 55px;">
                                     <option selected value>Select A Service</option>
-                                    <option value="1">Service 1</option>
-                                    <option value="2">Service 2</option>
-                                    <option value="3">Service 3</option>
+                                    @foreach($options as $option)
+                                        <option value="{{$option?->title}}">{{$option?->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-12 col-sm-6">

@@ -1,4 +1,4 @@
-@props(['employees' => []])
+@props(['team' => []])
 @php $delay = 0.1 @endphp
 <div class="container-xxl py-5">
     <div class="container">
@@ -7,15 +7,15 @@
             <h1 class="mb-5">Our Expert Technicians</h1>
         </div>
         <div class="row g-4">
-            @foreach($employees as $employee)
+            @foreach($team as $employee)
                 <x-employee
                     delay="{{$delay}}"
-                    avatar="{{$employee['avatar']}}"
-                    name="{{$employee['name']}}"
-                    position="{{$employee['position']}}"
-                    social_fb="{{$employee['social_fb'] ?? ''}}"
-                    social_inst="{{$employee['social_inst'] ?? ''}}"
-                    social_tw="{{$employee['social_tw'] ?? ''}}"
+                    avatar="{{asset('storage/' . $employee?->avatar)}}"
+                    name="{{$employee?->name}}"
+                    position="{{$employee?->position}}"
+                    social_fb="{{$employee?->social_fb ?? ''}}"
+                    social_inst="{{$employee?->social_inst ?? ''}}"
+                    social_tw="{{$employee?->social_tw ?? ''}}"
                 />
                 @php $delay += 0.2 @endphp
             @endforeach

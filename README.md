@@ -10,6 +10,7 @@ http://localhost:8080/
 ## Items to review
 - **config fields** - admin
 - **menu** - admin, db, backend
+- mailPit
 
 
 ## features:  

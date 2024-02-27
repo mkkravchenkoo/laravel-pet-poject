@@ -54,7 +54,7 @@ class ServiceController extends Controller
     {
         $attributes = $this->validateService($service);
 
-        if ($attributes['service'] ?? false) {
+        if ($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('service');
         }
 
