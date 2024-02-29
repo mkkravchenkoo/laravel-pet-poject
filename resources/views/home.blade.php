@@ -28,13 +28,8 @@
     ['name' => 'Ipsum Ipsum', 'position' => 'Copywriter', 'avatar' => 'img/team-4.jpg'],
 ]"
     />
-    <x-booking
-        title="Certified and Award Winning Car Repair Service Provider"
-        text="{{$config['booking-text'] ?? ''}}"
-        :options="$serviceOptions"
-    />
-
-    <x-booking-info text="{{$config['booking-text'] ?? ''}}"/>
+    <x-booking-form/>
+    <x-booking-info text="{{$config['pre-booking-text'] ?? ''}}"/>
 
 {{--    <x-reviews--}}
 {{--        :reviews="[--}}

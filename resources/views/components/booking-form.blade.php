@@ -5,7 +5,7 @@
             <div class="col-lg-6 py-5">
                 <div class="py-5">
                     <h1 class="text-white mb-4">{{$title}}</h1>
-                    <p class="text-white mb-0">{{$text}}</p>
+                    <p class="text-white mb-0">{{$bookingText}}</p>
                 </div>
             </div>
             <div class="col-lg-6">

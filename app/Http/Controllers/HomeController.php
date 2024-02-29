@@ -12,11 +12,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $configFields = ['booking-text', 'pre-booking-text'];
+        $configFields = ['pre-booking-text'];
         $config = Config::whereIn('name', $configFields)->get()->getAssoc();
 
-        $servicesOptions = Service::select('title')->get();
-
-        return view('home', ['config' => $config, 'serviceOptions' => $servicesOptions]);
+        return view('home', ['config' => $config]);
     }
 }
