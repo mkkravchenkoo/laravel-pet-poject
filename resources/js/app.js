@@ -36,30 +36,32 @@ window.onMenuItemChange = function (){
 
 }
 
-new NestedSort({
-    nestingLevels:1,
-    data: JSON.parse(menuInput.value),
-    actions: {
-        onDrop(data, e) {
-            const mappedItems = data.map(function (item){
-                var itemDom = document.querySelector(`[data-id="${item.id}"]`)
-                const text = itemDom.querySelector(`[data-name="text"]`)
-                const link = itemDom.querySelector(`[data-name="link"]`)
-                return {
-                    ...item,
-                    link: link.value,
-                    text: text.value
-                }
-            })
-            menuInput.value = JSON.stringify(mappedItems)
-        }
-    },
-    el: '#nested-sort-wrap',
-    listClassNames: ['nested-sort'],
-    renderListItem: (el, item) => {
-        const { id, link, text } = item
-        el.textContent = '';
-        el.innerHTML=`<div class="flex">
+var nestedMenuWrap = document.getElementById('nested-sort-wrap')
+if(nestedMenuWrap){
+    new NestedSort({
+        nestingLevels:1,
+        data: JSON.parse(menuInput.value),
+        actions: {
+            onDrop(data, e) {
+                const mappedItems = data.map(function (item){
+                    var itemDom = document.querySelector(`[data-id="${item.id}"]`)
+                    const text = itemDom.querySelector(`[data-name="text"]`)
+                    const link = itemDom.querySelector(`[data-name="link"]`)
+                    return {
+                        ...item,
+                        link: link.value,
+                        text: text.value
+                    }
+                })
+                menuInput.value = JSON.stringify(mappedItems)
+            }
+        },
+        el: '#nested-sort-wrap',
+        listClassNames: ['nested-sort'],
+        renderListItem: (el, item) => {
+            const { id, link, text } = item
+            el.textContent = '';
+            el.innerHTML=`<div class="flex">
                         <div class="mr-1">
                             <input
                                 type="text"
@@ -92,6 +94,8 @@ new NestedSort({
                             </form>
                         </div>
                     </div>`;
-        return el
-    }
-})
+            return el
+        }
+    })
+
+}
