@@ -27,9 +27,6 @@
                     <a href="{{route('admin.config.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Config
                     </a>
-                    <a href="{{route('admin.profile.edit')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
-                        Profile
-                    </a>
                 </div>
 
             </div>
