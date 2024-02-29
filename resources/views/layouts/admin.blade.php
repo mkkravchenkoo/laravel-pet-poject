@@ -35,7 +35,7 @@
     </main>
     <script>
         tinymce.init({
-            selector: "textarea",
+            selector: "textarea#body",
             plugins: [
                 "insertdatetime"
             ],
