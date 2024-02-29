@@ -10,6 +10,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tiny.cloud/1/94m8asvipoh9waoyvzrlbylyrmvdcb89u05grrre4lmhyg5b/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -32,6 +33,15 @@
         <x-flash/>
         @yield('content')
     </main>
+    <script>
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "insertdatetime"
+            ],
+            width: 700,
+            height: 400,})
+    </script>
 </div>
 </body>
 </html>
