@@ -23,7 +23,7 @@
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Services</h4>
                 @foreach($servicesMenu as $service)
-                    <a class="btn btn-link" href="{{$service->slug}}">{{$service->title}}</a>
+                    <a class="btn btn-link" href="{{route('service.show', $service->slug)}}">{{$service->title}}</a>
                 @endforeach
             </div>
         </div>

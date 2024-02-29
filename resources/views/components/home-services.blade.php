@@ -33,7 +33,7 @@
                                     <div class="mb-4">
                                         {!! $service?->excerpt ?? '' !!}
                                     </div>
-                                    <a href="{{$service?->slug ?? ''}}" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
+                                    <a href="{{route('service.show', $service?->slug)}}" class="btn btn-primary py-3 px-5 mt-3">Read More<i class="fa fa-arrow-right ms-3"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SlideController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/services/{service:slug}', [ServiceController::class, 'show'])->name('service.show');
+Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', function () {
@@ -44,7 +47,7 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::delete('/teams/{team}', [AdminTeamController::class, 'destroy'])->name('admin.team.destroy');
 
     Route::resource('/slider', SlideController::class)->except('show');
-    Route::resource('/service', ServiceController::class)->except('show');
+    Route::resource('/service', AdminServiceController::class)->except('show');
 
     Route::get('/config', [ConfigController::class, 'index'])->name('admin.config.index');
     Route::patch('/config', [ConfigController::class, 'update'])->name('admin.config.update');
