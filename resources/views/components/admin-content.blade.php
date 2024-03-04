@@ -18,6 +18,9 @@
                     <a href="{{route('slider.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Slider
                     </a>
+                    <a href="{{route('page.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
+                        Pages
+                    </a>
                     <a href="{{route('service.index')}}" class="block w-full px-4 py-2 rounded-t-lg cursor-pointer">
                         Services
                     </a>

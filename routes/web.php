@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AdminTeamController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainMenuController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminServiceController;
 use App\Http\Controllers\ServiceController;
@@ -24,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/services/{service:slug}', [ServiceController::class, 'show'])->name('service.show');
 Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
+Route::get('/pages/{page:slug}', [PageController::class, 'show']);
 
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/', function () {
@@ -48,6 +51,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
 
     Route::resource('/slider', SlideController::class)->except('show');
     Route::resource('/service', AdminServiceController::class)->except('show');
+
+    Route::resource('/page', AdminPageController::class)->except('show');
 
     Route::get('/config', [ConfigController::class, 'index'])->name('admin.config.index');
     Route::patch('/config', [ConfigController::class, 'update'])->name('admin.config.update');
