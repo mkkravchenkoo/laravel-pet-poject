@@ -15,4 +15,23 @@
         </div>
     </div>
     <x-booking-form/>
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="mb-5">Experts</h1>
+        </div>
+        <div class="row g-4">
+            @foreach($service->teams as $employee)
+                <x-employee
+                    avatar="{{asset('storage/' . $employee?->avatar)}}"
+                    name="{{$employee?->name}}"
+                    position="{{$employee?->position}}"
+                    social_fb="{{$employee?->social_fb ?? ''}}"
+                    social_inst="{{$employee?->social_inst ?? ''}}"
+                    social_tw="{{$employee?->social_tw ?? ''}}"
+                />
+
+            @endforeach
+        </div>
+    </div>
+
 @endsection
