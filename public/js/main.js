@@ -10,8 +10,8 @@
         }, 1);
     };
     spinner();
-    
-    
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -24,14 +24,14 @@
             $('.sticky-top').css('top', '-100px');
         }
     });
-    
-    
+
+
     // Dropdown on mouse hover
     const $dropdown = $(".dropdown");
     const $dropdownToggle = $(".dropdown-toggle");
     const $dropdownMenu = $(".dropdown-menu");
     const showClass = "show";
-    
+
     $(window).on("load resize", function() {
         if (this.matchMedia("(min-width: 992px)").matches) {
             $dropdown.hover(
@@ -52,8 +52,8 @@
             $dropdown.off("mouseenter mouseleave");
         }
     });
-    
-    
+
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -105,6 +105,39 @@
             }
         }
     });
-    
+
+    // booking form
+    $("#booking [name]").each(function (idx, element){
+        $(element).change(function(el){
+            $(el.target).css({"border": "0px"});
+        });
+    })
+
+    $("#booking").submit(function(e) {
+        e.preventDefault();
+        var form = $(this);
+        var actionUrl = form.attr('action');
+
+        $.ajax({
+            type: "POST",
+            url: actionUrl,
+            data: form.serialize(),
+            success: function(data){
+                if(data.success){
+                    alert("Success")
+                    form.trigger('reset');
+                }else{
+                    var errors = data.data;
+
+                    Object.keys(errors).forEach((value, index) => {
+                        console.log('value', value)
+                        var el = $(`[name="${value}"]`)
+                        el.css({"border": "3px solid #0B2154"});
+                    })
+                }
+            }
+        });
+    });
+
 })(jQuery);
 
