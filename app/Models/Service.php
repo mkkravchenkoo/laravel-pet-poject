@@ -18,4 +18,7 @@ class Service extends Model
         "excerpt",
         "body",
     ];
+    public function posts(){
+        return $this->hasMany(Team::class);
+    }
 }

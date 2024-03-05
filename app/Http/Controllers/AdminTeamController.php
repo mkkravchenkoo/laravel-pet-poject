@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Service;
 use App\Models\Team;
+use Illuminate\Validation\Rule;
 
 class AdminTeamController extends Controller
 {
@@ -17,6 +19,7 @@ class AdminTeamController extends Controller
             'social_fb' => 'required',
             'social_inst' => 'required',
             'social_tw' => 'required',
+            'service_id' => Rule::exists('services', 'id')
         ]);
     }
     public function index(){
@@ -25,12 +28,24 @@ class AdminTeamController extends Controller
         ]);
     }
     public function create(){
-        return view('admin.team.create');
+        $services = array_reduce(Service::select('title', 'id')->get()->toArray(), function ($result, $item) {
+            $result[$item['id']] = $item['title'];
+            return $result;
+        }, []);
+
+        return view('admin.team.create', ['services' => $services]);
     }
 
     public function edit(Team $team){
+
+        $services = array_reduce(Service::select('title', 'id')->get()->toArray(), function ($result, $item) {
+            $result[$item['id']] = $item['title'];
+            return $result;
+        }, []);
+
         return view('admin.team.edit',[
-            'team' => $team
+            'team' => $team,
+            'services' => $services
         ]);
     }
     public function store(){

@@ -1,3 +1,4 @@
+@props(['services' => []])
 <form method="post" enctype="multipart/form-data" action="{{ route('admin.team.store' ) }}" class="mt-6 space-y-6">
     @csrf
     <div>
@@ -9,6 +10,11 @@
         <x-input-label for="avatar" :value="__('Avatar')" />
         <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar')" />
         <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
+    </div>
+    <div>
+        <x-input-label for="service_id" :value="__('Service')" />
+        <x-select :options="$services" :value="old('service_id')" name="service_id" id="service_id"/>
+        <x-input-error class="mt-2" :messages="$errors->get('service_id')" />
     </div>
     <div>
         <x-input-label for="position" :value="__('Position')" />
