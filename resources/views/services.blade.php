@@ -19,6 +19,9 @@
                 </div>
             @endforeach
         </div>
-        {{ $services->links() }}
+        <div class="row m-5 text-center">
+            {{ $services->links() }}
+        </div>
+
     </div>
 @endsection

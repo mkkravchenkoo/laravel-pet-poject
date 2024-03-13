@@ -15,6 +15,6 @@ class ServiceController extends Controller
 
     public function index()
     {
-        return view('services', ['services' => Service::paginate(5)]);
+        return view('services', ['services' => Service::simplePaginate(4)]);
     }
 }

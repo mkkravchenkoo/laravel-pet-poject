@@ -21,7 +21,7 @@ class AdminPageController extends Controller
         public function index()
         {
             return view('admin.page.index', [
-                'pages' =>  Page::paginate(50)
+                'pages' =>  Page::paginate(5)
             ]);
         }
 
