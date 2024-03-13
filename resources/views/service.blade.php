@@ -7,7 +7,7 @@
         </div>
         <div class="row g-4 wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
             <div class="col-lg-4">
-                <img class="img-fluid w-100 h-100" src="{{asset('storage/' . $service?->thumbnail)}}" alt="">
+                <img class="img-fluid w-100" src="{{asset('storage/' . $service?->thumbnail)}}" alt="">
             </div>
             <div class="col-lg-8">
                 {!! $service?->body !!}
