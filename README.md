@@ -53,8 +53,7 @@ I use laravel sail
 cli command - CreateAdmin.php
 send email - BookingController.php
 email template - booking.blade.php
-custom facade, method - AppServiceProvider.php - $menu = Config::menu()->convertToArray(); Check Config.php
-collection map - ConfigCollection.php
+AppServiceProvider.php
 Independent components - example MainSlider.php
 helper - helpers.php
 routes - web.php

@@ -23,9 +23,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $configFields = ['address', 'working-time', 'phone', 'fb-link', 'email'];
-        $config = Config::whereIn('name', $configFields)->get()->getAssoc();
+        $config = Config::whereIn('name', $configFields)->get()->getAssoc(); // getAssoc - collection custom method key->values
 
-        $menu = Config::menu()->convertToArray();
+        $menu = Config::menu()->convertToArray(); // menu - custom method, convertToArray -> convert menu string to array
 
         $servicesMenu = Service::select('slug','title')->limit(4)->get();
 
